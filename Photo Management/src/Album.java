@@ -23,7 +23,7 @@ public class Album {
     }
     // Return all photos that satisfy the album condition
     public LinkedList<Photo> getPhotos(){
-        return new LinkedList<Photo>();
+        return new LinkedList<Photo>();//TODO: placeholder
     }
     // Return the number of tag comparisons used to find all photos of the album
     public int getNbComps(){
