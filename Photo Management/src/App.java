@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 public class App {
     public static void main(String[] args) {
         PhotoManager manager = new PhotoManager();
@@ -36,7 +34,7 @@ public class App {
         String[] tagsArray = tags.split("\\s*,\\s*");
 
         for (int i = 0; i < tagsArray.length; i++){
-            result.add(tagsArray[i]);
+            result.insert(tagsArray[i]);
         }
         
         return result;

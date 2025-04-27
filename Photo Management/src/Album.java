@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 public class Album {
     String name;
     String condition;
@@ -29,6 +27,6 @@ public class Album {
     }
     // Return the number of tag comparisons used to find all photos of the album
     public int getNbComps(){
-        return 1;
+        return 1;//TODO: placeholder
     }
 }

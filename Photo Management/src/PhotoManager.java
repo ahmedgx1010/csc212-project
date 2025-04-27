@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 public class PhotoManager {
     LinkedList<Photo> photos;
 
@@ -12,16 +10,17 @@ public class PhotoManager {
     }
     // Add a photo
     public void addPhoto(Photo p){
-        photos.add(p);
+        photos.insert(p);
     }
     // Delete a photo
     public void deletePhoto(String path){
-        int i = 0;
-        for(Photo p: photos){
-            if(p.path.equals(path)){
-                photos.remove(i);
-            }
-            i++;
+        photos.findfirst();
+        while(! photos.last()){
+            if(photos.retrieve().path.equals(path))
+                photos.remove();
         }
+        if(photos.retrieve().path.equals(path))
+                photos.remove();
+        
     }
 }
