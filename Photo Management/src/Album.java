@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class Album {
     String name;
     String condition;
@@ -22,7 +24,11 @@ public class Album {
         return manager;
     }
     // Return all photos that satisfy the album condition
-    public LinkedList<Photo> getPhotos();
+    public LinkedList<Photo> getPhotos(){
+        return new LinkedList<Photo>();
+    }
     // Return the number of tag comparisons used to find all photos of the album
-    public int getNbComps();
+    public int getNbComps(){
+        return 1;
+    }
 }

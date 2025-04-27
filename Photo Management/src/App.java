@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class App {
     public static void main(String[] args) {
         PhotoManager manager = new PhotoManager();
@@ -25,7 +27,7 @@ public class App {
 
         //You can get the list of photos in album2 by calling album2.getPhotos().
         //You can write a method that prints the list of photos in album2.
-        System.out.println("Delete the photo ’bear.jpg’:");
+        System.out.println("Delete the photo 'bear.jpg':");
         manager.deletePhoto("bear.jpg");
     }
 
@@ -33,8 +35,8 @@ public class App {
         LinkedList<String> result = new LinkedList<String>();
         String[] tagsArray = tags.split("\\s*,\\s*");
 
-        for (int i = 0; i < tagsArray.length; i++) {
-        result.insert(tagsArray[i]);
+        for (int i = 0; i < tagsArray.length; i++){
+            result.add(tagsArray[i]);
         }
         
         return result;

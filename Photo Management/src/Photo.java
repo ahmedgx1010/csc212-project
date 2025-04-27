@@ -2,9 +2,9 @@ import java.util.LinkedList;
 
 public class Photo {
     public String path;
-    public LinkedList<String> tags = new LinkedList<>();
+    public LinkedList<String> tags = new LinkedList<String>();
 
-    public Photo(String path, LinkedList<String> tags);{
+    public Photo(String path, LinkedList<String> tags){
         this.path = path;
         this.tags = tags;
     }
