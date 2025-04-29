@@ -2,6 +2,7 @@ public class Album {
     String name;
     String condition;
     PhotoManager manager;
+    private int nbComps = 0; // Number of comparisons made to find photos
 
     // Constructor
     public Album(String name, String condition, PhotoManager manager){
@@ -21,12 +22,61 @@ public class Album {
     public PhotoManager getManager(){
         return manager;
     }
+    //get array of conditions
+    private String[] getConditions (String con){
+        return con.split("\\s* AND \\s*");
+    }
     // Return all photos that satisfy the album condition
-    public LinkedList<Photo> getPhotos(){
-        return new LinkedList<Photo>();//TODO: placeholder
+   // Return all photos that satisfy the album condition
+    public LinkedList<Photo> getPhotos() {
+        LinkedList<Photo> result = new LinkedList<>();
+        LinkedList<Photo> allPhotos = manager.getPhotos(); // Get all photos from the manager
+        String[] requiredTags = getConditions(condition); // Split condition into tags
+
+        allPhotos.findfirst();
+        while (!allPhotos.last()) {
+            Photo photo = allPhotos.retrieve();
+            if (photoMatchesAllTags(photo, requiredTags)) {
+                result.insert(photo);
+            }
+            allPhotos.findnext();
+        }
+        if (photoMatchesAllTags(allPhotos.retrieve(), requiredTags)) {
+            result.insert(allPhotos.retrieve());
+        }
+
+        return result;
+    }
+
+    // Helper method to check if a photo matches all required tags (AND condition)
+    private boolean photoMatchesAllTags(Photo photo, String[] requiredTags) {
+        LinkedList<String> photoTags = photo.getTags(); // Get tags of the photo
+        for (String tag : requiredTags) {
+            if (!containsTag(photoTags, tag)) { // Check if the photo is missing any required tag
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Helper method to check if a LinkedList contains a specific tag
+    private boolean containsTag(LinkedList<String> tags, String tag) {
+        tags.findfirst();
+        while (!tags.last()) {
+            if (tags.retrieve().equals(tag)) {
+                return true;
+            }
+            nbComps++; // Increment the number of comparisons made
+            tags.findnext();
+        }
+        if (tags.retrieve().equals(tag)) {
+            nbComps++; // Increment the number of comparisons made
+            return true;
+        }
+        return false;
     }
     // Return the number of tag comparisons used to find all photos of the album
-    public int getNbComps(){
-        return 1;//TODO: placeholder
+    public int getNbComps(){//TODO: fix counting
+        return nbComps;
     }
 }

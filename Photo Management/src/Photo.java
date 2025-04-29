@@ -1,6 +1,6 @@
 public class Photo {
     public String path;
-    public LinkedList<String> tags = new LinkedList<String>();
+    public LinkedList<String> tags;
 
     public Photo(String path, LinkedList<String> tags){
         this.path = path;
