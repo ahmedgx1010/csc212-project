@@ -14,8 +14,6 @@ public class Test {
         Album album1 = new Album("Album1", "bear", manager);
         //album1.getConditions(album1.getCondition());
         Album album2 = new Album("Album2", "animal AND grass", manager);
-        LinkedList<Photo> h = album2.getPhotos();
-        int i = album2.getNbComps();
 
         System.out.println("Get photo1 path and tags:");
         System.out.println("photo1 path: " + photo1.getPath());

@@ -16,8 +16,12 @@ public class PhotoManager {
     public void deletePhoto(String path){
         photos.findfirst();
         while(! photos.last()){
-            if(photos.retrieve().path.equals(path))
+            if(photos.retrieve().path.equals(path)){
                 photos.remove();
+                break;//No duplicates
+            }
+            photos.findnext();
+                
         }
         if(photos.retrieve().path.equals(path))
                 photos.remove();
