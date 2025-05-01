@@ -11,6 +11,8 @@ public class Test {
         Photo photo3 = new Photo("orange-butterfly.jpg",toTagsLinkedList("insect, butterfly, flower, color"));
         manager.addPhoto(photo3);
 
+        //TODO: add the rest of the example photos
+
         Album album1 = new Album("Album1", "bear", manager);
         Album album2 = new Album("Album2", "animal AND grass", manager);
 
