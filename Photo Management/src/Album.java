@@ -2,7 +2,7 @@ public class Album {
     String name;
     String condition;
     PhotoManager manager;
-    private int nbComps = 0; // Number of comparisons made to find photos
+    private int nbComps = 0;
 
     // Constructor
     public Album(String name, String condition, PhotoManager manager){
@@ -26,9 +26,10 @@ public class Album {
     private String[] getConditions (String con){
         return con.split("\\s* AND \\s*");
     }
-    // Return all photos that satisfy the album condition
    // Return all photos that satisfy the album condition
     public LinkedList<Photo> getPhotos() {
+        if(condition.equals("")) return manager.getPhotos();//match all
+
         LinkedList<Photo> result = new LinkedList<>();
         LinkedList<Photo> allPhotos = manager.getPhotos(); // Get all photos from the manager
         String[] requiredTags = getConditions(condition); // Split condition into tags

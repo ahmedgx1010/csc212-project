@@ -12,7 +12,6 @@ public class Test {
         manager.addPhoto(photo3);
 
         Album album1 = new Album("Album1", "bear", manager);
-        //album1.getConditions(album1.getCondition());
         Album album2 = new Album("Album2", "animal AND grass", manager);
 
         System.out.println("Get photo1 path and tags:");
