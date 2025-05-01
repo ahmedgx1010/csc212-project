@@ -63,20 +63,20 @@ public class Album {
     private boolean containsTag(LinkedList<String> tags, String tag) {
         tags.findfirst();
         while (!tags.last()) {
+            nbComps++;
             if (tags.retrieve().equals(tag)) {
                 return true;
             }
-            nbComps++; // Increment the number of comparisons made
             tags.findnext();
         }
+        nbComps++;
         if (tags.retrieve().equals(tag)) {
-            nbComps++; // Increment the number of comparisons made
             return true;
         }
         return false;
     }
     // Return the number of tag comparisons used to find all photos of the album
-    public int getNbComps(){//TODO: fix counting
+    public int getNbComps(){
         return nbComps;
     }
 }
