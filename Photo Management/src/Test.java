@@ -58,12 +58,12 @@ public class Test {
         printPhotos(album1.getPhotos());
         System.out.println("Number of comparisons: " + album1.getNbComps());
         
-        // Testing InvIndexPhotoManager
+       
         System.out.println("\n===== Testing InvIndexPhotoManager Implementation =====");
         
         InvIndexPhotoManager invManager = new InvIndexPhotoManager();
         
-        // Add all photos to the inverted index manager
+       
         Photo invPhoto1 = new Photo("hedgehog.jpg", toTagsLinkedList("animal, hedgehog, apple, grass, green"));
         invManager.addPhoto(invPhoto1);
 
@@ -113,17 +113,17 @@ public class Test {
         printPhotos(invAlbum1.getPhotos());
         System.out.println("Number of comparisons: " + invAlbum1.getNbComps());
         
-        // Print performance comparison
+       
         System.out.println("\n===== Performance Comparison =====");
         System.out.println("Original implementation vs. Inverted Index implementation:");
-        System.out.println("Single tag condition ('bear'):");
+        System.out.println("Single tag condition ('" + album1.getCondition() + "'):");
         System.out.println("  Original: Required " + album1.getNbComps() + " comparisons");
         System.out.println("  Inverted Index: Required " + invAlbum1.getNbComps() + " comparisons");
         
-        System.out.println("Compound tag condition ('animal AND grass'):");
+        System.out.println("Compound tag condition ('" + album2.getCondition() + "'):");
         System.out.println("  Original: Required " + album2.getNbComps() + " comparisons");
-        System.out.println("  Inverted Index: Required " + invAlbum2.getNbComps() + " comparisons");
-    }
+        System.out.println("  Inverted Index: Required " + invAlbum2.getNbComps() + " comparisons");    
+        }
 
     private static LinkedList<String> toTagsLinkedList(String tags) {
         LinkedList<String> result = new LinkedList<String>();
